@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculatrice</title>
+  <link rel="icon" type="image/png" href="calculatrice.png">
+  <link rel="stylesheet" href="calculatrice.css" />
+</head>
+<body>
+  <div class="calculator">
+    <h1>🧮 Calculatrice</h1>
+    <input type="text" id="display" readonly>
+    <div style="display:flex;gap:8px;justify-content:center;margin:10px 0;">
+      <button id="clear-all">Effacer tout</button>
+    </div>
+    <div class="buttons basic">
+      <button>1</button><button>2</button><button>3</button><button>4</button>
+      <button>5</button><button>6</button><button>7</button><button>8</button>
+      <button>9</button><button>0</button><button>.</button><button>/</button>
+      <button>+</button><button>-</button><button>*</button><button id="enter">=</button>
+        <button id="backspace">⌫</button>
+    </div>
+    <div class="buttons scientific hidden">
+      <button>√</button>
+      <button>x²</button>
+      <button>sin</button>
+      <button>cos</button>
+      <button>tan</button>
+      <button>ln</button>
+      <button>log</button>
+      <button>π</button>
+      <button>(</button>
+      <button>)</button>
+    </div>
+    <button id="toggle-mode">🔬 Mode scientifique</button>
+  </div>
+  <script src="calculatrice.js"></script>
+</body>
+</html>
