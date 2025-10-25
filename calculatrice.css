@@ -71,6 +71,24 @@ button:hover {
 #toggle-mode:hover {
   background-color: #285a8e;
 }
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #4a90e2;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.back-button:hover {
+  background-color: #357abd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
 #clear-all{
   padding:0.7rem 1rem;
   background: linear-gradient(90deg,#ff6b6b,#ff4757);
