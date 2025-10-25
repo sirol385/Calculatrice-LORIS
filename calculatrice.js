@@ -1,3 +1,12 @@
+function isVercel() {
+    return window.location.hostname.includes('vercel.app');
+}
+function updateHomeButton() {
+    const homeButton = document.querySelector('.back-button');
+    if (homeButton && isVercel()) {
+        homeButton.href = 'https://accueil-loris.vercel.app';
+    }
+}
 const display = document.getElementById("display");
 const buttons = document.querySelectorAll(".basic button, .scientific button");
 const clearBtn = document.getElementById("clear");
@@ -53,3 +62,4 @@ if (clearAllBtn) {
     display.value = '';
   });
 }
+document.addEventListener('DOMContentLoaded', updateHomeButton);
