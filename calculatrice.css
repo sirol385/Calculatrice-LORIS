@@ -1,5 +1,8 @@
+:root {
+    --transition: all 0.3s ease;
+}
 body {
-  background: linear-gradient(135deg, #4a90e2, #2c3e50);
+background: linear-gradient(135deg, #2d6a4f, #ffd900d2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,17 +78,19 @@ button:hover {
   position: fixed;
   top: 20px;
   left: 20px;
-  background-color: #4a90e2;
+  background-color: rgba(255, 255, 255, 0.15);
   color: white;
-  padding: 10px 15px;
+  padding: 13px 15px;
   border-radius: 50%;
   text-decoration: none;
   font-size: 1.5rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: var(--transition);
+  z-index: 1500;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 .back-button:hover {
-  background-color: #357abd;
+  background-color: rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -98,5 +103,12 @@ button:hover {
   font-weight:700;
   cursor:pointer;
   box-shadow:0 8px 20px rgba(255,71,87,0.18);
+}
+#backspace {
+  background: linear-gradient(90deg,#ffd93d,#ff9f43);
+  color: white;
+  padding: 13px 18px;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(255,159,67,0.18);
 }
 #clear-all:hover{ transform:translateY(-2px); box-shadow:0 18px 40px rgba(255,71,87,0.18); }

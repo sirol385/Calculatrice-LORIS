@@ -11,6 +11,7 @@ const display = document.getElementById("display");
 const buttons = document.querySelectorAll(".basic button, .scientific button");
 const clearBtn = document.getElementById("clear");
 const clearAllBtn = document.getElementById("clear-all");
+const backspaceBtn = document.getElementById("backspace");
 const toggleModeBtn = document.getElementById("toggle-mode");
 const scientificSection = document.querySelector(".scientific");
 let isScientific = false;
@@ -62,4 +63,11 @@ if (clearAllBtn) {
     display.value = '';
   });
 }
+
+if (backspaceBtn) {
+  backspaceBtn.addEventListener('click', () => {
+    display.value = display.value.slice(0, -1);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', updateHomeButton);
