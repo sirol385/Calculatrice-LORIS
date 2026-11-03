@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculatrice</title>
+  <link rel="icon" type="image/png" href="calculatrice.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="calculatrice.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="calculator">
+      <div class="mode-bar">
+        <button class="mode-btn active" data-mode="basic">Basique</button>
+        <button class="mode-btn" data-mode="scientific">Scientifique</button>
+        <button class="mode-btn" data-mode="energy">Énergie</button>
+      </div>
+      <div class="display">
+        <div class="display-expression" id="expression">&nbsp;</div>
+        <div class="display-result" id="result">0</div>
+      </div>
+      <div class="tooltip-box" id="tooltipBox"></div>
+      <div class="sci-grid" id="sciGrid">
+        <button class="btn sci" data-action="const" data-val="π"
+                data-tip="Insérer π (≈ 3.14159…)">π</button>
+        <button class="btn sci" data-action="paren" data-val="("
+                data-tip="Parenthèse ouvrante">(</button>
+        <button class="btn sci" data-action="paren" data-val=")"
+                data-tip="Parenthèse fermante">)</button>
+        <button class="btn sci" data-action="fn" data-fn="sq"
+                data-tip="Nombre au carré (x²)">x²</button>
+        <button class="btn sci" data-action="fn" data-fn="cube"
+                data-tip="Nombre au cube (x³)">x³</button>
+        <button class="btn sci" data-action="fn" data-fn="sin"
+                data-tip="Sinus (angle en radians)">sin</button>
+        <button class="btn sci" data-action="fn" data-fn="cos"
+                data-tip="Cosinus (angle en radians)">cos</button>
+        <button class="btn sci" data-action="fn" data-fn="tan"
+                data-tip="Tangente (angle en radians)">tan</button>
+        <button class="btn sci" data-action="fn" data-fn="sqrt"
+                data-tip="Racine carrée">√x</button>
+        <button class="btn sci" data-action="fn" data-fn="pow"
+                data-tip="Puissance : base → xʸ → exposant → =">xʸ</button>
+        <button class="btn sci" data-action="fn" data-fn="log"
+                data-tip="Logarithme décimal (base 10)">log</button>
+        <button class="btn sci" data-action="fn" data-fn="ln"
+                data-tip="Logarithme naturel (base e)">ln</button>
+        <button class="btn sci" data-action="fn" data-fn="inv"
+                data-tip="Inverse du nombre (1 ÷ x)">1/x</button>
+        <button class="btn sci" data-action="mulx" data-val="2"
+                data-tip="Multiplier le résultat par 2">×2</button>
+        <button class="btn sci" data-action="mulx" data-val="3"
+                data-tip="Multiplier le résultat par 3">×3</button>
+      </div>
+      <div class="main-grid">
+        <button class="btn ctrl ac"  data-action="ac">AC</button>
+        <button class="btn ctrl del" data-action="del">⌫</button>
+        <button class="btn op"  data-action="op" data-op="÷">÷</button>
+        <button class="btn op"  data-action="op" data-op="×">×</button>
+        <button class="btn num" data-action="num" data-val="7">7</button>
+        <button class="btn num" data-action="num" data-val="8">8</button>
+        <button class="btn num" data-action="num" data-val="9">9</button>
+        <button class="btn op"  data-action="op"  data-op="−">−</button>
+        <button class="btn num" data-action="num" data-val="4">4</button>
+        <button class="btn num" data-action="num" data-val="5">5</button>
+        <button class="btn num" data-action="num" data-val="6">6</button>
+        <button class="btn op"  data-action="op"  data-op="+">+</button>
+        <button class="btn num" data-action="num" data-val="1">1</button>
+        <button class="btn num" data-action="num" data-val="2">2</button>
+        <button class="btn num" data-action="num" data-val="3">3</button>
+        <button class="btn eq span2" data-action="eq">=</button>
+        <button class="btn num zero" data-action="num" data-val="0">0</button>
+        <button class="btn num"      data-action="num" data-val=".">.</button>
+      </div>
+      <div class="energy-panel" id="energyPanel">
+        <select class="energy-select" id="energySelect">
+          <option value="power">Trouver P, U ou I</option>
+          <option value="energy">Trouver l'énergie</option>
+        </select>
+        <div class="energy-fields" id="energyFields"></div>
+        <button class="btn eq energy-calc" id="energyCalcBtn">Calculer</button>
+        <div class="energy-result" id="energyResult">—</div>
+      </div>
+    </div>
+  </div>
+  <div id="mentionsModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2>📄 Mentions légales</h2>
+      <p><strong>Éditeur du site</strong><br>
+      <span class="contact-inline">Loris GOUHIER - lorisgouhier@gmail.com</span><br>
+      Site personnel sans but commercial, réalisé à des fins de présentation et de développement web.</p>
+      <p><strong>Hébergeur/Diffusion/Domaine</strong><br>
+      GitHub Inc, 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.<br>
+      Cloudflare Inc, 101 Townsend Street, San Francisco, CA 94107, États-Unis.<br>
+      OVH SAS, 2 Rue Kellermann, 59100 Roubaix, France.</p>
+      <p><strong>Propriété intellectuelle</strong><br>
+      L'ensemble du contenu présent sur ce site (textes, images, codes sources, etc) est la propriété exclusive de Loris GOUHIER.
+      Conformément à l'article L.122-4 du Code de la propriété intellectuelle,
+      toute reproduction, représentation, même partielle est interdite sans autorisation préalable.</p>
+      <p><strong>Données personnelles</strong><br>
+      Ce site ne collecte aucune donnée personnelle ni aucun cookie de suivi.<br>
+      GitHub et Cloudflare peuvent traiter votre adresse IP pour le fonctionnement et la sécurité du site.</p>
+    <p class="maj-line">Site web et mentions légales mis à jour le <b>03/11/2026</b>.</p>
+    </div>
+  </div>
+  <footer>
+    <p>© 2026 | Tous droits réservés | <a onclick="openModal()">Mentions légales</a></p>
+  </footer>
+  <script src="calculatrice.js"></script>
+</body>
+</html>
